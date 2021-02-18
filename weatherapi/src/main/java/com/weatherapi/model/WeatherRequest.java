@@ -3,7 +3,7 @@ package com.weatherapi.model;
 public class WeatherRequest {
 
 	private String zipCode;
-	private String contryCode;
+	private String countryCode;
 
 	public String getZipCode() {
 		return zipCode;
@@ -13,17 +13,17 @@ public class WeatherRequest {
 		this.zipCode = zipCode;
 	}
 
-	public String getContryCode() {
-		return contryCode;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
-	public void setContryCode(String contryCode) {
-		this.contryCode = contryCode;
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	@Override
 	public String toString() {
-		return "WeatherRequest [zipCode=" + zipCode + ", contryCode=" + contryCode + "]";
+		return "WeatherRequest [zipCode=" + zipCode + ", contryCode=" + countryCode + "]";
 	}
 	
 }

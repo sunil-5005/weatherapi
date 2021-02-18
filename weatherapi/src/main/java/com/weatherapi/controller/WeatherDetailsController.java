@@ -1,9 +1,8 @@
 package com.weatherapi.controller;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.weatherapi.model.WeatherRequest;
-import com.weatherapi.model.WeatherResponse;
 import com.weatherapi.service.WeatherService;
 
 @RestController
@@ -30,15 +28,15 @@ public class WeatherDetailsController {
 					value = "/getTomorrowsWeather", 
 					consumes = MediaType.APPLICATION_JSON_VALUE, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
-	public WeatherResponse getTomorrowsWeather(@RequestBody final WeatherRequest weatherRequest, HttpServletRequest request) {
-		WeatherResponse weatherResponse = null;
+	public String getTomorrowsWeather(@RequestBody final WeatherRequest weatherRequest, HttpServletRequest request) {
+		JSONObject weatherResponse = null;
 		
 		try {
 			weatherResponse = weatherService.getWeatherDetails(weatherRequest);
 		} catch (Exception e) {
 			LOGGER.error("Error while getting weather details: " + e.getMessage());
 		}
-		return weatherResponse;
+		return weatherResponse.toString();
 	}
 
 	
